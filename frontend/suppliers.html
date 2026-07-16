@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Suppliers | Inventory ERP</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<div class="sidebar">
+
+<div class="logo">
+<i class="fa-solid fa-boxes-stacked"></i>
+<span>Inventory ERP</span>
+</div>
+
+<ul>
+
+<li onclick="location.href='dashboard.html'">
+<i class="fa-solid fa-house"></i>
+Dashboard
+</li>
+
+<li onclick="location.href='products.html'">
+<i class="fa-solid fa-box"></i>
+Products
+</li>
+
+<li class="active">
+<i class="fa-solid fa-truck"></i>
+Suppliers
+</li>
+
+<li onclick="location.href='inventory.html'">
+<i class="fa-solid fa-warehouse"></i>
+Inventory
+</li>
+
+<li onclick="location.href='reports.html'">
+<i class="fa-solid fa-chart-line"></i>
+Reports
+</li>
+<li style="margin-top:180px;" onclick="location.href='login.html'">
+    <i class="fa-solid fa-right-from-bracket"></i>
+    Logout
+</li>
+
+</ul>
+
+</div>
+
+<div class="main">
+
+<div class="topbar">
+
+<h2>Suppliers</h2>
+
+<div class="profile">
+
+<input type="text" class="search-box" placeholder="Search Supplier...">
+
+<img src="images/kaviya.jpg" alt="Kaviya K">
+
+</div>
+
+</div>
+
+<div class="table-box">
+
+<div class="table-header">
+
+<h3>Supplier Management</h3>
+
+<button onclick="addSupplier()">+ Add Supplier</button>
+
+</div>
+
+<table>
+
+<tr>
+
+<th>ID</th>
+<th>Supplier</th>
+<th>Company</th>
+<th>Phone</th>
+<th>Email</th>
+<th>Status</th>
+<th>Action</th>
+
+</tr>
+
+<tr>
+
+<td>1</td>
+<td>Ravi Kumar</td>
+<td>Dell India</td>
+<td>9876543210</td>
+<td>ravi@dell.com</td>
+
+<td>
+<span class="available">Active</span>
+</td>
+
+<td>
+
+<button class="edit-btn" onclick="editSupplier(this)">
+    <i class="fa-solid fa-pen"></i>
+</button>
+
+<button class="delete-btn">
+<i class="fa-solid fa-trash"></i>
+</button>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>2</td>
+<td>Suresh</td>
+<td>HP India</td>
+<td>9123456780</td>
+<td>suresh@hp.com</td>
+
+<td>
+<span class="available">Active</span>
+</td>
+
+<td>
+
+<button class="edit-btn" onclick="editSupplier(this)">
+    <i class="fa-solid fa-pen"></i>
+</button>
+
+<button class="delete-btn">
+<i class="fa-solid fa-trash"></i>
+</button>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td>3</td>
+<td>Priya</td>
+<td>Logitech</td>
+<td>9988776655</td>
+<td>priya@logitech.com</td>
+
+<td>
+<span class="available">Active</span>
+</td>
+
+<td>
+
+<button class="edit-btn" onclick="editSupplier(this)"></button>
+
+<button class="delete-btn">
+<i class="fa-solid fa-trash"></i>
+</button>
+
+</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+<script>
+
+function addSupplier(){
+
+    const supplier = prompt("Enter Supplier Name");
+    if(!supplier) return;
+
+    const company = prompt("Enter Company Name");
+    if(!company) return;
+
+    const phone = prompt("Enter Phone Number");
+    if(!phone) return;
+
+    const email = prompt("Enter Email");
+    if(!email) return;
+
+    const table = document.querySelector("table");
+
+    const row = table.insertRow(-1);
+
+    row.innerHTML = `
+        <td>${table.rows.length-1}</td>
+        <td>${supplier}</td>
+        <td>${company}</td>
+        <td>${phone}</td>
+        <td>${email}</td>
+        <td><span class="available">Active</span></td>
+        <td>
+            <button class="edit-btn" onclick="editSupplier(this)">
+                <i class="fa-solid fa-pen"></i>
+            </button>
+
+            <button class="delete-btn" onclick="deleteSupplier(this)">
+                <i class="fa-solid fa-trash"></i>
+            </button>
+        </td>
+    `;
+
+    alert("Supplier Added Successfully!");
+
+}
+function editSupplier(button){
+
+    const row = button.closest("tr");
+
+    const supplier = row.cells[1];
+    const company = row.cells[2];
+    const phone = row.cells[3];
+    const email = row.cells[4];
+
+    let newSupplier = prompt("Supplier Name", supplier.innerText);
+    if(newSupplier === null) return;
+
+    let newCompany = prompt("Company", company.innerText);
+    if(newCompany === null) return;
+
+    let newPhone = prompt("Phone Number", phone.innerText);
+    if(newPhone === null) return;
+
+    let newEmail = prompt("Email", email.innerText);
+    if(newEmail === null) return;
+
+    supplier.innerText = newSupplier;
+    company.innerText = newCompany;
+    phone.innerText = newPhone;
+    email.innerText = newEmail;
+
+    alert("Supplier Updated Successfully!");
+}
+function deleteSupplier(button){
+
+    if(confirm("Delete this supplier?")){
+
+        button.closest("tr").remove();
+
+    }
+
+}
+</script>
+
+</body>
+
+</html>

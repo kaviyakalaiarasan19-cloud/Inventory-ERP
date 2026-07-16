@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Inventory | Inventory ERP</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<div class="sidebar">
+
+<div class="logo">
+<i class="fa-solid fa-boxes-stacked"></i>
+<span>Inventory ERP</span>
+</div>
+
+<ul>
+
+<li onclick="location.href='dashboard.html'"><i class="fa-solid fa-house"></i> Dashboard</li>
+
+<li onclick="location.href='products.html'"><i class="fa-solid fa-box"></i> Products</li>
+
+<li onclick="location.href='suppliers.html'"><i class="fa-solid fa-truck"></i> Suppliers</li>
+
+<li class="active"><i class="fa-solid fa-warehouse"></i> Inventory</li>
+
+<li onclick="location.href='reports.html'"><i class="fa-solid fa-chart-line"></i> Reports</li>
+<li style="margin-top:180px;" onclick="location.href='login.html'">
+    <i class="fa-solid fa-right-from-bracket"></i>
+    Logout
+</li>
+</ul>
+
+</div>
+
+<div class="main">
+
+<div class="topbar">
+
+<h2>Inventory Management</h2>
+
+<div class="profile">
+<img src="images/kaviya.jpg" alt="Kaviya K">
+
+</div>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+<div>
+<h3>850</h3>
+<p>Total Stock</p>
+</div>
+<i class="fa-solid fa-boxes-stacked"></i>
+</div>
+
+<div class="card">
+<div>
+<h3>08</h3>
+<p>Low Stock</p>
+</div>
+<i class="fa-solid fa-triangle-exclamation"></i>
+</div>
+
+<div class="card">
+<div>
+<h3>03</h3>
+<p>Warehouses</p>
+</div>
+<i class="fa-solid fa-warehouse"></i>
+</div>
+
+<div class="card">
+<div>
+<h3>150</h3>
+<p>Products</p>
+</div>
+<i class="fa-solid fa-box"></i>
+</div>
+
+</div>
+
+<div class="table-box">
+
+<div class="table-header">
+
+<h3>Current Inventory</h3>
+
+<button onclick="addStock()">+ Stock In</button>
+
+</div>
+
+<table>
+
+<tr>
+
+<th>ID</th>
+<th>Product</th>
+<th>Warehouse</th>
+<th>Stock</th>
+<th>Status</th>
+<th>Action</th>
+
+</tr>
+
+<tr>
+
+<td>101</td>
+<td>Dell Laptop</td>
+<td>Chennai</td>
+<td>15</td>
+<td><span class="available">Available</span></td>
+
+<td>
+<button class="edit-btn" onclick="editStock(this)">
+<i class="fa-solid fa-pen"></i>
+</button>
+
+<button class="delete-btn" onclick="deleteStock(this)">
+<i class="fa-solid fa-trash"></i>
+</button>
+</td>
+
+</tr>
+
+<tr>
+
+<td>102</td>
+<td>HP Laptop</td>
+<td>Bangalore</td>
+<td>08</td>
+<td><span class="low">Low Stock</span></td>
+
+<td>
+<button class="edit-btn" onclick="editStock(this)">
+<i class="fa-solid fa-pen"></i>
+</button>
+
+<button class="delete-btn" onclick="deleteStock(this)">
+<i class="fa-solid fa-trash"></i>
+</button>
+</td>
+
+</tr>
+
+<tr>
+
+<td>103</td>
+<td>Wireless Mouse</td>
+<td>Coimbatore</td>
+<td>42</td>
+<td><span class="available">Available</span></td>
+
+<td>
+<button class="edit-btn" onclick="editStock(this)">
+<i class="fa-solid fa-pen"></i>
+</button>
+
+<button class="delete-btn" onclick="deleteStock(this)">
+<i class="fa-solid fa-trash"></i>
+</button>
+</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+<script>
+
+function addStock(){
+
+    const product = prompt("Product Name");
+    if(!product) return;
+
+    const warehouse = prompt("Warehouse");
+    if(!warehouse) return;
+
+    const stock = prompt("Stock Quantity");
+    if(!stock) return;
+
+    const table = document.querySelector("table");
+
+    const row = table.insertRow(-1);
+
+    const status = stock <= 10
+        ? '<span class="low">Low Stock</span>'
+        : '<span class="available">Available</span>';
+
+    row.innerHTML = `
+        <td>${table.rows.length-1}</td>
+        <td>${product}</td>
+        <td>${warehouse}</td>
+        <td>${stock}</td>
+        <td>${status}</td>
+        <td>
+            <button class="edit-btn" onclick="editStock(this)">
+                <i class="fa-solid fa-pen"></i>
+            </button>
+
+            <button class="delete-btn" onclick="deleteStock(this)">
+                <i class="fa-solid fa-trash"></i>
+            </button>
+        </td>
+    `;
+
+    alert("Inventory Added Successfully!");
+
+}
+
+function editStock(button){
+
+    const row = button.closest("tr");
+
+    let stock = parseInt(prompt("Update Stock", row.cells[3].innerText));
+
+if(isNaN(stock)) return;
+
+    if(stock===null) return;
+
+    row.cells[3].innerText = stock;
+
+    row.cells[4].innerHTML =
+        stock<=10
+        ? '<span class="low">Low Stock</span>'
+        : '<span class="available">Available</span>';
+
+    alert("Stock Updated!");
+
+}
+
+function deleteStock(button){
+
+    if(confirm("Delete this inventory?")){
+
+        button.closest("tr").remove();
+
+    }
+
+}
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory ERP | Login</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Left Side -->
+    <div class="left-panel">
+
+        <h1>Inventory ERP</h1>
+
+        <p>
+            Smart Inventory Management System
+            for modern businesses.
+        </p>
+
+        <div class="features">
+
+            <div class="feature">
+                <i class="fa-solid fa-box"></i>
+                <span>Real-Time Inventory Tracking</span>
+            </div>
+
+            <div class="feature">
+                <i class="fa-solid fa-truck"></i>
+                <span>Supplier Management</span>
+            </div>
+
+            <div class="feature">
+                <i class="fa-solid fa-chart-column"></i>
+                <span>Analytics & Reports</span>
+            </div>
+
+            <div class="feature">
+                <i class="fa-solid fa-warehouse"></i>
+                <span>Warehouse Management</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Right Side -->
+    <div class="right-panel">
+
+        <div class="login-card">
+
+            <h2>Welcome Back 👋</h2>
+
+            <p>Please login to continue</p>
+
+            <div class="input-box">
+                <i class="fa-solid fa-user"></i>
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Username"
+                >
+            </div>
+
+            <div class="input-box">
+                <i class="fa-solid fa-lock"></i>
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Password"
+                >
+            </div>
+
+            <button onclick="login()">
+                Login
+            </button>
+
+            <p id="msg"></p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

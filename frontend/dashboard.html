@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Inventory ERP Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-boxes-stacked"></i>
+            <span>Inventory ERP</span>
+        </div>
+
+        <ul>
+
+            <li class="active">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </li>
+
+            <li onclick="location.href='products.html'">
+                <i class="fa-solid fa-box"></i>
+                Products
+            </li>
+
+            <li onclick="location.href='suppliers.html'">
+                <i class="fa-solid fa-truck"></i>
+                Suppliers
+            </li>
+
+            <li onclick="location.href='inventory.html'">
+                <i class="fa-solid fa-warehouse"></i>
+                Inventory
+            </li>
+
+            <li onclick="location.href='reports.html'">
+                <i class="fa-solid fa-chart-line"></i>
+                Reports
+            </li>
+            <li style="margin-top:180px;" onclick="location.href='login.html'">
+    <i class="fa-solid fa-right-from-bracket"></i>
+    Logout
+</li>
+
+        </ul>
+
+    </div>
+
+    <!-- Main -->
+
+    <div class="main">
+
+        <div class="topbar">
+
+            <h2>Dashboard</h2>
+
+            <div class="profile">
+
+                <i class="fa-solid fa-bell"></i>
+
+                <img src="images/kaviya.jpg" alt="Kaviya K">
+
+                <span>Admin</span>
+
+            </div>
+
+        </div>
+
+        <!-- Cards -->
+
+        <div class="cards">
+
+            <div class="card">
+
+                <div>
+
+                    <h3>150</h3>
+
+                    <p>Total Products</p>
+
+                </div>
+
+                <i class="fa-solid fa-box"></i>
+
+            </div>
+
+            <div class="card">
+
+                <div>
+
+                    <h3>25</h3>
+
+                    <p>Suppliers</p>
+
+                </div>
+
+                <i class="fa-solid fa-truck"></i>
+
+            </div>
+
+            <div class="card">
+
+                <div>
+
+                    <h3>850</h3>
+
+                    <p>Total Stock</p>
+
+                </div>
+
+                <i class="fa-solid fa-layer-group"></i>
+
+            </div>
+
+            <div class="card">
+
+                <div>
+
+                    <h3>08</h3>
+
+                    <p>Low Stock</p>
+
+                </div>
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+            </div>
+
+        </div>
+
+        <!-- Table -->
+
+        <div class="table-box">
+
+            <div class="table-header">
+
+                <h3>Recent Products</h3>
+
+                <button>Add Product</button>
+
+            </div>
+
+            <table>
+
+                <tr>
+
+                    <th>ID</th>
+
+                    <th>Product</th>
+
+                    <th>Category</th>
+
+                    <th>Price</th>
+
+                    <th>Stock</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+                <tr>
+
+                    <td>101</td>
+
+                    <td>Dell Laptop</td>
+
+                    <td>Laptop</td>
+
+                    <td>₹55,000</td>
+
+                    <td>15</td>
+
+                    <td><span class="available">Available</span></td>
+
+                </tr>
+
+                <tr>
+
+                    <td>102</td>
+
+                    <td>HP Laptop</td>
+
+                    <td>Laptop</td>
+
+                    <td>₹62,000</td>
+
+                    <td>08</td>
+
+                    <td><span class="low">Low Stock</span></td>
+
+                </tr>
+
+                <tr>
+
+                    <td>103</td>
+
+                    <td>Wireless Mouse</td>
+
+                    <td>Accessories</td>
+
+                    <td>₹1,200</td>
+
+                    <td>42</td>
+
+                    <td><span class="available">Available</span></td>
+
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
